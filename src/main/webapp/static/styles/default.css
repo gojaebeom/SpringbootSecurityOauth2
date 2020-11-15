@@ -1,0 +1,32 @@
+/* ---------------------------------
+ *        font default style
+ * --------------------------------- */
+*{ font-family: 'Gothic A1', sans-serif; color:#2E2E2E; box-sizing: border-box;}
+a{text-decoration:none;color:#2E2E2E;}
+hr{border:1px dotted #E6E6E6;width:90%;}
+
+/* ---------------------------------
+ *        body style
+ * --------------------------------- */
+ body{background:#f7f7f7;}
+
+/* ---------------------------------
+ *        input, button style
+ * --------------------------------- */
+input,button:focus {outline:none;}
+input,button:hover {cursor: pointer;}
+
+
+
+/* ---------------------------------
+ *        Fix content elements
+ * --------------------------------- */
+h1, h2, h3, h4, h5, h6{font-weight: 400;}
+h1{font-size: 1.75em;}
+h2{font-size: 1.5em;}
+h3{font-size: 1.25em}
+h4{font-size: 1.125em}
+h5{font-size: 1em}
+
+
+
