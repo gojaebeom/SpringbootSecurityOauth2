@@ -32,7 +32,7 @@
 				</li>
 			</ul>
 			
-			 
+			 <!-- 
 			<ul class="menu login-menu">
 				<li class="menu-item">
 					<div class="menu-profile-wrap">
@@ -60,7 +60,7 @@
 				</li>
 			</ul>
 			
-			<!--  
+			 -->
 			<ul class="menu logout-menu">
 				<li class="menu-item">
 					<a href="/login">
@@ -69,7 +69,7 @@
 					</a>
 				</li>
 			</ul>
-			-->
+			
 			
 		</nav>
 	</header>

@@ -6,9 +6,8 @@
 <!-- css reset -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
 
-<!-- my css -->
+<!-- my custom layout -->
 <link rel="stylesheet" href="/static/styles/default.css">
-<link rel="stylesheet" href="/static/styles/header.css">
 
 <!-- font -->
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">

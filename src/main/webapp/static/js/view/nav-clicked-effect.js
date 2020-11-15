@@ -13,28 +13,28 @@ const tagIcon = document.querySelector('.tag-icon');
 const loginIcon = document.querySelector('.login-icon');
 
 const homeActive = () => {
-   homeSpan.style.color = '#0174DF';
-   homeIcon.style.color = '#0174DF';
+   homeSpan.style.color = '#1877f2';
+   homeIcon.style.color = '#1877f2';
    homeIcon.style.fontSize = '27px';
 
 }
 const workActive = () => {
-   workSpan.style.color = '#0174DF';
-   workIcon.style.color = '#0174DF';
+   workSpan.style.color = '#1877f2';
+   workIcon.style.color = '#1877f2';
    workIcon.style.fontSize = '27px';
 } 
 const tagActive = () => {
-   tagSpan.style.color = '#0174DF';
-   tagIcon.style.color = '#0174DF';
+   tagSpan.style.color = '#1877f2';
+   tagIcon.style.color = '#1877f2';
    tagIcon.style.fontSize = '27px';
 }
 const loginActive = () => {
-   loginSpan.style.color = '#0174DF';
-   loginIcon.style.color = '#0174DF';
+   loginSpan.style.color = '#1877f2';
+   loginIcon.style.color = '#1877f2';
    loginIcon.style.fontSize = '27px';
 }
 const profileActive = () => {
-   loggedInSpan.style.color = '#0174DF';
+   loggedInSpan.style.color = '#1877f2';
 }
 
 const clickMenuEffect = (pathname) => {
