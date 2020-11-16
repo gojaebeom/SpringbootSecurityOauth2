@@ -24,6 +24,18 @@
 
 	<!-- 프로젝트에 필요한 디펜던시 모아두기 -->
 	<dependencies>
+	
+		<!-- jackson-databind, jackson-core : json형식의 파일을 전달할 수 있게 함 -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.11.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>2.11.1</version>
+		</dependency>
 
 		<!-- jstl : jsp에서 스크립트릿문법보다 간편하게 자바문법사용가능 -->
 		<dependency>

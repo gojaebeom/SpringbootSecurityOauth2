@@ -59,8 +59,9 @@
 					</div>
 				</li>
 			</ul>
-			
 			 -->
+			
+			 
 			<ul class="menu logout-menu">
 				<li class="menu-item">
 					<a href="/login">

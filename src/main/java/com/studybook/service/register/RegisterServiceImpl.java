@@ -14,10 +14,12 @@ public class RegisterServiceImpl implements RegisterService {
 
 	@Override
 	public int insertUser(UserDTO user) throws Exception {
-		
-		registerDAO.insertUser(user);
-		
-		return 0;
+		return registerDAO.insertUser(user);
+	}
+
+	@Override
+	public int selectUserAccount(String account) throws Exception {
+		return registerDAO.selectUserAccount(account);
 	}
 
 }

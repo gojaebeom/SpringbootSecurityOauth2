@@ -10,6 +10,9 @@
 <body>
 	<!-- HEADER -->
 	<%@ include file="/WEB-INF/include/header.jsp"%>
-	<h1>태그</h1>
+	<section class="section">
+		<h1>태그</h1>
+		
+	</section>
 </body>
 </html>

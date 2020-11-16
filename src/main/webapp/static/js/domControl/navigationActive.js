@@ -12,50 +12,28 @@ const workIcon = document.querySelector('.work-icon');
 const tagIcon = document.querySelector('.tag-icon');
 const loginIcon = document.querySelector('.login-icon');
 
-const homeActive = () => {
+export const homeActive = () => {
    homeSpan.style.color = '#1877f2';
    homeIcon.style.color = '#1877f2';
    homeIcon.style.fontSize = '27px';
-
 }
-const workActive = () => {
+export const workActive = () => {
    workSpan.style.color = '#1877f2';
    workIcon.style.color = '#1877f2';
    workIcon.style.fontSize = '27px';
 } 
-const tagActive = () => {
+export const tagActive = () => {
    tagSpan.style.color = '#1877f2';
    tagIcon.style.color = '#1877f2';
    tagIcon.style.fontSize = '27px';
 }
-const loginActive = () => {
-   loginSpan.style.color = '#1877f2';
-   loginIcon.style.color = '#1877f2';
-   loginIcon.style.fontSize = '27px';
-}
-const profileActive = () => {
-   loggedInSpan.style.color = '#1877f2';
-}
-
-const clickMenuEffect = (pathname) => {
-	console.log(pathname);
-   
-   switch(pathname){
-      case '/': homeActive();
-         break;
-      case '/works': workActive();
-         break;
-      case '/tags': tagActive();
-         break;
-      case '/login': loginActive();
-         break;
-      case '/register': loginActive();
-         break;
-      case '/profile': profileActive();
-         break;
-      default : return false;
+export const loginActive = () => {
+   if(loginSpan !== null && loginIcon !== null){
+      loginSpan.style.color = '#1877f2';
+      loginIcon.style.color = '#1877f2';
+      loginIcon.style.fontSize = '27px';
    }
 }
-document.addEventListener("DOMContentLoaded", () => {
-   clickMenuEffect(location.pathname);
-});
+export const profileActive = () => {
+   loggedInSpan.style.color = '#1877f2';
+}

@@ -16,5 +16,4 @@
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
 <!-- my js  -->
-<script defer="defer" src="/static/js/view/menu-dropbox.js"></script>
-<script defer="defer" src="/static/js/view/nav-clicked-effect.js"></script>
+<script defer="defer" type="module" src="/static/js/app.js"></script>

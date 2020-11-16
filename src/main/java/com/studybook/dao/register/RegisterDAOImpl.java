@@ -17,4 +17,10 @@ public class RegisterDAOImpl implements RegisterDAO {
 		return sqlSession.insert("register.insertUser", user);
 	}
 
+	@Override
+	public int selectUserAccount(String account) throws Exception {
+		Integer result =  sqlSession.selectOne("register.selectUserAccount", account);
+		return (result != null) ? result : 0;
+	}
+
 }

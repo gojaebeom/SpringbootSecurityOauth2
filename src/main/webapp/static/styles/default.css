@@ -92,7 +92,7 @@ border-radius:10px;}
  .form .form-checkbox-wrap{display:flex;justify-content:flex-start;align-items:center;width:100%;margin-bottom:20px;}
  .form button{border:none;padding:15px 5px;background:#1877f2;border-radius:5px;color:white;font-size:16px;font-weight:bold;}
  .form .form-info-text{color:#1877f2;font-weight:bold;}
- .form .message-span{display:none;color:#FA5858;padding:15px;background:#F6CECE;}
+ .form .message-span{display:none;color:#FF0000;padding:10px;background:#F6CECE;margin-bottom:15px; }
  
  
  

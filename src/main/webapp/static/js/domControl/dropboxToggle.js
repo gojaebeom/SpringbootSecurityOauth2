@@ -1,17 +1,13 @@
-/* ---------------------------------
- *        매뉴 드롭박스 토글
- * --------------------------------- */
 const profileBox = document.querySelector('.menu-profile-wrap');
 const dropbox = document.querySelector('.menu-profile-dropbox');
 const loginImg = document.querySelector('.login-img');
 const loginTextWrap = document.querySelector('.login-text-wrap');
 
-
-
-document.addEventListener("DOMContentLoaded", () => {
-	
+/* ---------------------------------
+ *        매뉴 드롭박스 토글
+ * --------------------------------- */
+export const dropboxToggle = () => {
 	if(profileBox !== null){
-		
 		profileBox.onclick = () => {
 			//console.log('프로필 박스 클릭!');
 			dropbox.style.display=(dropbox.style.display==='block')?'none':'block'; 
@@ -29,8 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
 			}
 		});
 	}
-	
-	
-});
+}
 
 
