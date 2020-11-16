@@ -21,8 +21,8 @@
 				<input id="password" name="password" type="password" placeholder="최소 8글자 이상, 특수문자1개 이상을 포함">
 			</div>
 			<div class="form-input-wrap">
-				<label for="name">이름</label>
-				<input id="name" name="name" placeholder="이름 또는 닉네임을 입력해주세요">
+				<label for="nickname">닉네임</label>
+				<input id="nickname" name="nickname" placeholder="이름 또는 닉네임을 입력해주세요">
 			</div>
 			<div class="form-input-wrap">
 				<label for="email">이메일</label>

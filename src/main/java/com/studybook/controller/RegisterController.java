@@ -32,19 +32,17 @@ public class RegisterController {
 		return "/sign/register";
 	}
 	
+	@ResponseBody
 	@RequestMapping(value="/register",method=RequestMethod.POST)
-	public String store(UserDTO user) throws Exception {
+	public boolean store(@RequestBody UserDTO user) throws Exception {
+		System.out.println(user);
 		
 		String encodePassword = passwordEncoder.encode(user.getPassword());
 		user.setPassword(encodePassword);
 		
 		int result = registerService.insertUser(user);
-		
-		if(result == 0) {
-			
-		}
-		
-		return "redirect:/";
+				
+		return (result != 0)? true : false;
 	}
 	
 	@ResponseBody
