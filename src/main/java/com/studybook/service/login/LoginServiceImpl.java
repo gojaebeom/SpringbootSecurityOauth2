@@ -4,7 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.studybook.dao.login.LoginDAO;
-import com.studybook.dto.UserDTO;
+import com.studybook.domain.LoginDTO;
+import com.studybook.domain.UserVO;
 
 @Service
 public class LoginServiceImpl implements LoginService {
@@ -13,9 +14,9 @@ public class LoginServiceImpl implements LoginService {
 	private LoginDAO loginDAO;
 
 	@Override
-	public UserDTO loginCheck(UserDTO user) throws Exception {
+	public UserVO loginCheck(LoginDTO login) throws Exception {
 		
-		return loginDAO.selectUserForAccount(user);
+		return loginDAO.selectUserForAccount(login);
 	}
 
 }

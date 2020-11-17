@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.studybook.dao.register.RegisterDAO;
-import com.studybook.dto.UserDTO;
+import com.studybook.domain.UserVO;
 
 @Service
 public class RegisterServiceImpl implements RegisterService {
@@ -13,7 +13,7 @@ public class RegisterServiceImpl implements RegisterService {
 	private RegisterDAO registerDAO;
 
 	@Override
-	public int insertUser(UserDTO user) throws Exception {
+	public int insertUser(UserVO user) throws Exception {
 		return registerDAO.insertUser(user);
 	}
 

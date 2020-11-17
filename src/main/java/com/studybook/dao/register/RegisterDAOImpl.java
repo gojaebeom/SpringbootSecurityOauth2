@@ -4,7 +4,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.studybook.dto.UserDTO;
+import com.studybook.domain.UserVO;
 
 @Repository
 public class RegisterDAOImpl implements RegisterDAO {
@@ -13,7 +13,7 @@ public class RegisterDAOImpl implements RegisterDAO {
 	private SqlSession sqlSession;
 
 	@Override
-	public int insertUser(UserDTO user) throws Exception {
+	public int insertUser(UserVO user) throws Exception {
 		return sqlSession.insert("register.insertUser", user);
 	}
 

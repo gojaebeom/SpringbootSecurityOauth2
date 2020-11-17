@@ -1,33 +1,39 @@
-package com.studybook.dto;
+package com.studybook.domain;
 
 import java.util.Date;
 
-public class UserDTO {
+public class UserVO {
 
 	private int id;
 	private String account;
 	private String password;
 	private String nickname;
 	private String email;
+	private String sessionKey;
+	private Date sessionLimit;
+	private Date loginedAt;
 	private Date createdAt;
 	private Date updatedAt;
 	
-	public UserDTO(){
+	public UserVO(){
 		
 	}
 	
-	public UserDTO(int id, String account, String password, String nickname, String email, Date createdAt,
-			Date updatedAt) {
+	public UserVO(int id, String account, String password, String nickname, String email, String sessionKey,
+			Date sessionLimit, Date loginedAt, Date createdAt, Date updatedAt) {
 		super();
 		this.id = id;
 		this.account = account;
 		this.password = password;
 		this.nickname = nickname;
 		this.email = email;
+		this.sessionKey = sessionKey;
+		this.sessionLimit = sessionLimit;
+		this.loginedAt = loginedAt;
 		this.createdAt = createdAt;
 		this.updatedAt = updatedAt;
 	}
-	
+
 	public int getId() {
 		return id;
 	}
@@ -67,6 +73,37 @@ public class UserDTO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+
+	public String getSessionKey() {
+		return sessionKey;
+	}
+
+
+	public void setSessionKey(String sessionKey) {
+		this.sessionKey = sessionKey;
+	}
+
+
+	public Date getSessionLimit() {
+		return sessionLimit;
+	}
+
+
+	public void setSessionLimit(Date sessionLimit) {
+		this.sessionLimit = sessionLimit;
+	}
+
+
+	public Date getLoginedAt() {
+		return loginedAt;
+	}
+
+
+	public void setLoginedAt(Date loginedAt) {
+		this.loginedAt = loginedAt;
+	}
+
 
 	public Date getCreatedAt() {
 		return createdAt;
@@ -84,15 +121,15 @@ public class UserDTO {
 		this.updatedAt = updatedAt;
 	}
 
+
 	@Override
 	public String toString() {
 		return "UserDTO [id=" + id + ", account=" + account + ", password=" + password + ", nickname=" + nickname
-				+ ", email=" + email + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + ", getId()=" + getId()
-				+ ", getAccount()=" + getAccount() + ", getPassword()=" + getPassword() + ", getNickname()="
-				+ getNickname() + ", getEmail()=" + getEmail() + ", getCreatedAt()=" + getCreatedAt()
-				+ ", getUpdatedAt()=" + getUpdatedAt() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
-				+ ", toString()=" + super.toString() + "]";
+				+ ", email=" + email + ", sessionKey=" + sessionKey + ", sessionLimit=" + sessionLimit + ", loginedAt="
+				+ loginedAt + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + "]";
 	}
+
+
 	
 	
 }

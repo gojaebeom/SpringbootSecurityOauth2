@@ -1,7 +1,8 @@
 package com.studybook.service.login;
 
-import com.studybook.dto.UserDTO;
+import com.studybook.domain.LoginDTO;
+import com.studybook.domain.UserVO;
 
 public interface LoginService {
-	public UserDTO loginCheck(UserDTO user) throws Exception;
+	public UserVO loginCheck(LoginDTO login) throws Exception;
 }

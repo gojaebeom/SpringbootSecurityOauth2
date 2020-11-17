@@ -85,16 +85,23 @@ border-radius:10px;}
 /* ---------------------------------
  *        form style
  * --------------------------------- */
- .form{display:flex;flex-direction:column;width:450px;border-radius:10px;background:white;box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);padding:20px 12px;}
- .form .form-input-wrap{display:flex;flex-direction:column;width:100%;margin-bottom:10px;}
- .form .form-input-wrap label{margin-bottom:5px;}
- .form .form-input-wrap input{width:100%;padding:15px 15px;border-radius:5px;border:1px solid #D8D8D8;}
- .form .form-checkbox-wrap{display:flex;justify-content:flex-start;align-items:center;width:100%;margin-bottom:20px;}
- .form button{border:none;padding:15px 5px;background:#1877f2;border-radius:5px;color:white;font-size:16px;font-weight:bold;}
- .form .form-info-text{color:#1877f2;font-weight:bold;}
- .form .message-span{display:none;color:#FF0000;padding:10px;background:#F6CECE;margin-bottom:15px; }
+.form{display:flex;flex-direction:column;width:450px;border-radius:10px;background:white;box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);padding:20px 12px;}
+.form .form-input-wrap{display:flex;flex-direction:column;width:100%;margin-bottom:10px;}
+.form .form-input-wrap label{margin-bottom:5px;}
+.form .form-input-wrap input{width:100%;padding:15px 15px;border-radius:5px;border:1px solid #D8D8D8;}
+.form .form-checkbox-wrap{display:flex;justify-content:flex-start;align-items:center;width:100%;margin-bottom:20px;}
+.form button{border:none;padding:15px 5px;background:#1877f2;border-radius:5px;color:white;font-size:16px;font-weight:bold;}
+.form .form-info-text{color:#1877f2;font-weight:bold;}
+.form .message-span{display:none;color:#FF0000;padding:10px;background:#F6CECE;margin-bottom:15px; }
  
  
+ /* ---------------------------------
+ *        post form style
+ * --------------------------------- */
+.post-background-wrap{position:absolute;top:0;left:0;width:100%;height:100vh;background-color:rgba(245,245,245,0.6);display:none;justify-content:center;align-items:center;}
+.post-background-wrap .post-form{display:none;width:700px;}
+.post-background-wrap .post-form .post-form-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;}
+.post-background-wrap .post-form .post-form-header .close-button{cursor:pointer;font-size:30px;color:#BDBDBD;}
  
 
 /* ---------------------------------

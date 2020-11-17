@@ -17,3 +17,5 @@
 
 <!-- my js  -->
 <script defer="defer" type="module" src="/static/js/app.js"></script>
+
+<script src="https://cdn.ckeditor.com/ckeditor5/23.1.0/classic/ckeditor.js"></script>

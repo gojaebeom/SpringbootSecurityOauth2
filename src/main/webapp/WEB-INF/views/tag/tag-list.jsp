@@ -12,7 +12,9 @@
 	<%@ include file="/WEB-INF/include/header.jsp"%>
 	<section class="section">
 		<h1>태그</h1>
-		
 	</section>
+	
+	<!-- POST-FORM -->
+	<%@ include file="/WEB-INF/include/post-form.jsp"%>
 </body>
 </html>

@@ -13,5 +13,8 @@
 	<section class="section">
 		<h1>작품</h1>
 	</section>
+	
+	<!-- POST-FORM -->
+	<%@ include file="/WEB-INF/include/post-form.jsp"%>
 </body>
 </html>

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.studybook.dto.UserDTO;
+import com.studybook.domain.UserVO;
 import com.studybook.service.register.RegisterService;
 
 
@@ -34,7 +34,7 @@ public class RegisterController {
 	
 	@ResponseBody
 	@RequestMapping(value="/register",method=RequestMethod.POST)
-	public boolean store(@RequestBody UserDTO user) throws Exception {
+	public boolean store(@RequestBody UserVO user) throws Exception {
 		System.out.println(user);
 		
 		String encodePassword = passwordEncoder.encode(user.getPassword());

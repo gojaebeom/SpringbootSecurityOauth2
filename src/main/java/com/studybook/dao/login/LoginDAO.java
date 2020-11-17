@@ -1,7 +1,8 @@
 package com.studybook.dao.login;
 
-import com.studybook.dto.UserDTO;
+import com.studybook.domain.LoginDTO;
+import com.studybook.domain.UserVO;
 
 public interface LoginDAO {
-	public UserDTO selectUserForAccount(UserDTO user) throws Exception;
+	public UserVO selectUserForAccount(LoginDTO login) throws Exception;
 }
