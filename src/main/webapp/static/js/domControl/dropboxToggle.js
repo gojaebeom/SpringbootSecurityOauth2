@@ -9,16 +9,15 @@ const loginTextWrap = document.querySelector('.login-text-wrap');
 export const dropboxToggle = () => {
 	if(profileBox !== null){
 		profileBox.onclick = () => {
-			//console.log('프로필 박스 클릭!');
 			dropbox.style.display=(dropbox.style.display==='block')?'none':'block'; 
 		};
 
 		document.body.addEventListener('click', e =>{
+			
 			if(e.target == profileBox || 
 			   e.target == loginImg ||
 			   e.target == loginTextWrap){
 			}else{
-				console.log(dropbox);
 				if(dropbox.style.display === 'block'){
 					dropbox.style.display='none';
 				}

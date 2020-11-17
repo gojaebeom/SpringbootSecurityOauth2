@@ -1,8 +1,13 @@
 import { homeActive, loginActive, profileActive, tagActive, workActive } from './domControl/navigationActive.js';
 import { dropboxToggle } from './domControl/dropboxToggle.js';
+import { postFormModal } from './domControl/postFormModal.js';
+
 import { LoginValidation }  from './validation/loginValidation.js';
 import { RegisterValidation }  from './validation/registerValidation.js';
 
+import { loginCookie } from './cookies/loginCookie.js';
+
+import { ckEditor } from './ckeditor/index.js';
 
 
 /* ---------------------------------
@@ -21,6 +26,7 @@ const router = (pathname) => {
             break;
         case '/login': 
             loginActive();
+            loginCookie();
             new LoginValidation();
             break;
         case '/register': 
@@ -41,5 +47,7 @@ const router = (pathname) => {
 document.addEventListener("DOMContentLoaded", () => {
     router(location.pathname);
     dropboxToggle();
+    ckEditor();
+    postFormModal();
 });
 

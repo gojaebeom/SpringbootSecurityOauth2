@@ -18,13 +18,33 @@ export const asyncAccountCheck = (account) => {
 }
 
 /* ---------------------------------
-*  회원가입 데이터 보내기
+*           회원가입 요청
 * --------------------------------- */
 export const asyncPostRegister = (user) => {
     console.log(user);
     return new Promise((resolve, reject) => {
         try{
             let result = fetch('/register',{
+                method:'POST', 
+                body:JSON.stringify(user),
+                headers:{
+                'Content-Type': 'application/json'
+              }}).then(res=>res.json());
+            resolve(result);
+        }catch(e){
+            console.error(e);
+        }
+    });
+}
+
+/* ---------------------------------
+*            로그인 요청
+* --------------------------------- */
+export const asyncPostLogin = (user) => {
+    console.log(user);
+    return new Promise((resolve, reject) => {
+        try{
+            let result = fetch('/login',{
                 method:'POST', 
                 body:JSON.stringify(user),
                 headers:{
