@@ -1,4 +1,4 @@
-import { asyncPostLogin } from '../asyncAPI/index.js';
+import { asyncLogin } from '../asyncAPI/index.js';
 
 const form = document.querySelector('.form');
 const account = document.getElementById('account');
@@ -41,7 +41,7 @@ export class LoginValidation{
                 return this.warningMessage('아이디나 비밀번호를 입력하지 않았습니다 🤔');
             }
 
-            asyncPostLogin({
+            asyncLogin({
                 'account':account.value,
                 'password':password.value
             }).then((res)=>{

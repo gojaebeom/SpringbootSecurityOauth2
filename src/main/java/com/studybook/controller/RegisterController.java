@@ -35,14 +35,14 @@ public class RegisterController {
 	@ResponseBody
 	@RequestMapping(value="/register",method=RequestMethod.POST)
 	public boolean store(@RequestBody UserVO user) throws Exception {
-		System.out.println(user);
+		LOG.info(user);
 		
 		String encodePassword = passwordEncoder.encode(user.getPassword());
 		user.setPassword(encodePassword);
 		
 		int result = registerService.insertUser(user);
 				
-		return (result != 0)? true : false;
+		return (result != 0) ? true : false;
 	}
 	
 	@ResponseBody

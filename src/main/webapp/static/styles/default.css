@@ -4,6 +4,8 @@
 *{ font-family: 'Gothic A1', sans-serif; color:#2E2E2E; box-sizing: border-box;}
 a{text-decoration:none;color:#2E2E2E;}
 hr{border:1px dotted #E6E6E6;width:98%;}
+strong{font-weight: bold;}
+i{font-style:italic;}
 
 /* ---------------------------------
  *        body style
@@ -55,13 +57,13 @@ h5{font-size: 1em}
 .nav .menu .menu-item a:hover .icon-wrap i{font-size:27px;color:#1877f2;} 
 .nav .menu .menu-item a:hover .text-wrap{color:#1877f2;}
 
-.nav .menu .menu-item .menu-profile-wrap{display:flex;justify-content:center;align-items:center;width:100%;height:100%;}  
+.nav .menu .menu-item .menu-profile-wrap{display:flex;justify-content:center;align-items:center;width:80px;height:100%;}  
 .nav .menu .menu-item .menu-profile-wrap .img-wrap{width:32px;height:32px;border-radius:100%;overflow:hidden;margin-right:5px;transition:all 0.5s;}
 .nav .menu .menu-item .menu-profile-wrap .img-wrap img{width:100%;height:100%;}
 .nav .menu .menu-item .menu-profile-wrap .text-wrap{font-weight:bold;}
 .nav .menu .menu-item .menu-profile-wrap:hover .text-wrap{color:#1877f2;}
 
-.login-menu{margin-right:20px;cursor:pointer;position:relative;}
+.login-menu{cursor:pointer;position:relative;}
 .login-menu .menu-item .menu-profile-dropbox{display:none; position:absolute;right:0;top:80%; background:white;width:200px;box-shadow:0 4px 10px rgba(0,0,0,0.05), 0 0 1px rgba(0,0,0,0.1);
 border-radius:10px;} 
 .login-menu .menu-item .menu-profile-dropbox .dropbox-item{display:flex;justify-content:center;align-items:center;width:100%;padding:5px;}
@@ -98,10 +100,15 @@ border-radius:10px;}
  /* ---------------------------------
  *        post form style
  * --------------------------------- */
-.post-background-wrap{position:absolute;top:0;left:0;width:100%;height:100vh;background-color:rgba(245,245,245,0.6);display:none;justify-content:center;align-items:center;}
-.post-background-wrap .post-form{display:none;width:700px;}
-.post-background-wrap .post-form .post-form-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;}
-.post-background-wrap .post-form .post-form-header .close-button{cursor:pointer;font-size:30px;color:#BDBDBD;}
+.post-form{width:700px;margin-bottom:100px;}
+.post-form .post-form-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;}
+.post-form input{border-radius:2px;border:1px solid #D8D8D8;}
+
+
+ /* ---------------------------------
+ *        ck editor
+ * --------------------------------- */
+.ck-editor__editable_inline {min-height: 500px;}
  
 
 /* ---------------------------------

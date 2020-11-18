@@ -18,7 +18,7 @@
 	<%@ include file="/WEB-INF/include/header.jsp"%>
 	
 	<section class="section">
-		<form action="/login" method="post" class="form">
+		<form id="register-form" class="form">
 			<div class="form-input-wrap">
 				<label for="account">아이디</label>
 				<input id="account" name="account" placeholder="영문 대소문자 또는 숫자를 포함한 총 4-15자리 입력">

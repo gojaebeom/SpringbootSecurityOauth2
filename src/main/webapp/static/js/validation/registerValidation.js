@@ -1,4 +1,4 @@
-import { asyncAccountCheck, asyncPostRegister } from '../asyncAPI/index.js';
+import { asyncAccountCheck, asyncRegister } from '../asyncAPI/index.js';
 
 const form = document.querySelector('.form');
 const account = document.getElementById('account');
@@ -137,7 +137,7 @@ export class RegisterValidation{
                 if(!this.emailCheck())
                     return false;
 
-                asyncPostRegister({
+                asyncRegister({
                     'account' : account.value,
                     'password' : password.value,
                     'nickname' : nickname.value,

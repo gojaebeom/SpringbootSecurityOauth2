@@ -20,7 +20,7 @@ export const asyncAccountCheck = (account) => {
 /* ---------------------------------
 *           회원가입 요청
 * --------------------------------- */
-export const asyncPostRegister = (user) => {
+export const asyncRegister = (user) => {
     console.log(user);
     return new Promise((resolve, reject) => {
         try{
@@ -40,13 +40,32 @@ export const asyncPostRegister = (user) => {
 /* ---------------------------------
 *            로그인 요청
 * --------------------------------- */
-export const asyncPostLogin = (user) => {
-    console.log(user);
+export const asyncLogin = (user) => {
     return new Promise((resolve, reject) => {
         try{
             let result = fetch('/login',{
                 method:'POST', 
                 body:JSON.stringify(user),
+                headers:{
+                'Content-Type': 'application/json'
+              }}).then(res=>res.json());
+            resolve(result);
+        }catch(e){
+            console.error(e);
+        }
+    });
+}
+
+/* ---------------------------------
+*          게시물 생성 요청
+* --------------------------------- */
+export const asyncPost = (post) => {
+    console.log(post);
+    return new Promise((resolve, reject) => {
+        try{
+            let result = fetch('/posts',{
+                method:'POST', 
+                body:JSON.stringify(post),
                 headers:{
                 'Content-Type': 'application/json'
               }}).then(res=>res.json());
