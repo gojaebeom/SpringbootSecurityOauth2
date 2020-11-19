@@ -10,8 +10,9 @@
 <body>
 	<!-- HEADER -->
 	<%@ include file="/WEB-INF/include/header.jsp"%>
-	<section class="section">
-		<h1>홈</h1>
-	</section>
+	<section id="app" class="section"></section>
+	
+	<!-- my js  -->
+	<script  type="module" src="/static/frontend/app.js"></script>
 </body>
 </html>

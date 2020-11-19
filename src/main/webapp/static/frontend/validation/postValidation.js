@@ -11,10 +11,14 @@ export class PostValidation{
             console.log(postForm.content.value);   
 
             asyncPost({
+                'userId' : postForm.userId.value,
                 'title' : postForm.title.value,
                 'content' : postForm.content.value
             }).then((res)=>{
-                console.log(res);
+                if(!res)
+                    return false;
+                
+                location.href = "/";
             })
         })
     }
