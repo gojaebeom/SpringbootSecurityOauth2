@@ -15,7 +15,4 @@
 <!-- RemixIcone -->
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
-<!-- my js  -->
-<script defer="defer" type="module" src="/static/js/app.js"></script>
-
 <script src="https://cdn.ckeditor.com/ckeditor5/23.1.0/classic/ckeditor.js"></script>

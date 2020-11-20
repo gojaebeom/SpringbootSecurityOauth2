@@ -15,8 +15,8 @@ export const dropboxToggle = () => {
 		document.body.addEventListener('click', e =>{
 			
 			if(e.target == profileBox || 
-			   e.target == loginImg ||
-			   e.target == loginTextWrap){
+				e.target == loginImg ||
+				e.target == loginTextWrap){
 			}else{
 				if(dropbox.style.display === 'block'){
 					dropbox.style.display='none';

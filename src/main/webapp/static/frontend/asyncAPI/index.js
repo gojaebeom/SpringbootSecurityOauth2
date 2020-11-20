@@ -9,7 +9,7 @@ export const asyncAccountCheck = (account) => {
                 body:account,
                 headers:{
                 'Content-Type': 'application/json'
-              }}).then(res=>res.json());
+                }}).then(res=>res.json());
             resolve(result);
         }catch(e){
             console.error(e);
@@ -29,7 +29,7 @@ export const asyncRegister = (user) => {
                 body:JSON.stringify(user),
                 headers:{
                 'Content-Type': 'application/json'
-              }}).then(res=>res.json());
+                }}).then(res=>res.json());
             resolve(result);
         }catch(e){
             console.error(e);
@@ -48,7 +48,25 @@ export const asyncLogin = (user) => {
                 body:JSON.stringify(user),
                 headers:{
                 'Content-Type': 'application/json'
-              }}).then(res=>res.json());
+                }}).then(res=>res.json());
+            resolve(result);
+        }catch(e){
+            console.error(e);
+        }
+    });
+}
+
+/* ---------------------------------
+*          게시물 리스트 요청
+* --------------------------------- */
+export const asyncPostIndex = () => {
+    return new Promise((resolve, reject) => {
+        try{
+            let result = fetch('/posts',{
+                method:'GET', 
+                headers:{
+                'Content-Type': 'application/json'
+                }}).then(res=>res.json());
             resolve(result);
         }catch(e){
             console.error(e);
@@ -68,7 +86,7 @@ export const asyncPost = (post) => {
                 body:JSON.stringify(post),
                 headers:{
                 'Content-Type': 'application/json'
-              }}).then(res=>res.json());
+                }}).then(res=>res.json());
             resolve(result);
         }catch(e){
             console.error(e);

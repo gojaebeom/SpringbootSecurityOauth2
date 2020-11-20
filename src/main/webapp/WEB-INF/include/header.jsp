@@ -4,29 +4,29 @@
 	<header class="header">
 		<nav class="nav">
 			<figure class="logo">
-				<a href="/">STUDY BOOK</a>
+				<a data-href="/">STUDY BOOK</a>
 			</figure>
 			<ul class="menu main-menu">
 				<li class="menu-item">
-					<a href="/">
+					<a data-href="/">
 						<span class="icon-wrap"><i class="ri-home-2-fill home-icon"></i></span>
 						<span class="text-wrap home-span">홈</span>
 					</a>
 				</li>
 				<li class="menu-item">
-					<a href="/works">
+					<a data-href="/works">
 						<span class="icon-wrap"><i class="ri-palette-fill work-icon"></i></span>
 						<span class="text-wrap work-span">작품</span>
 					</a>
 				</li>
 				<li class="menu-item">
-					<a href="/tags">
+					<a data-href="/tags">
 						<span class="icon-wrap"><i class="ri-hashtag tag-icon"></i></span>
 						<span class="text-wrap tag-span">태그</span>
 					</a>
 				</li>
 				<li class="menu-item">
-					<a href="#">
+					<a>
 						<span class="icon-wrap"><i class="ri-search-eye-fill"></i></span>
 						<span class="text-wrap">검색</span>
 					</a>
@@ -43,12 +43,12 @@
 								</div>
 							</div>
 							<div class="menu-profile-dropbox">
-								<a href="/" class="dropbox-item">
+								<a data-href="/" class="dropbox-item">
 									<i class="ri-profile-fill"></i>
 									<span>내 블로그</span>
 								</a>
 								<hr>
-								<a href="/posts/create" class="dropbox-item">
+								<a data-href="/posts/create" class="dropbox-item">
 									<i class="ri-pencil-ruler-fill"></i>
 									<span>글 쓰기</span>
 								</a>
@@ -64,7 +64,7 @@
 				<c:otherwise>
 					<ul class="menu logout-menu">
 						<li class="menu-item">
-							<a href="/login">
+							<a data-href="/login">
 								<span class="icon-wrap"><i class="ri-login-circle-fill login-icon"></i></span>
 								<span class="text-wrap login-span">로그인</span>
 							</a>
