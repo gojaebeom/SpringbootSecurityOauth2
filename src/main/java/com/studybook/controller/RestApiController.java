@@ -53,7 +53,7 @@ public class RestApiController {
 		System.out.println("회원가입!");
 		System.out.println(user);
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
-		user.setRoles("USER");
+		user.setRole("USER");
 		userRepository.save(user);
 		return "회원가입 완료";
 	}

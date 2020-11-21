@@ -24,9 +24,9 @@ public class PrincipalDetails implements UserDetails{
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub
 		Collection<GrantedAuthority> authorities = new ArrayList<>();
-		user.getRoleList().forEach(r->{
-			authorities.add(()->{return r;});
-		});
+
+		authorities.add(()->{return user.getRole();});
+
 		return authorities;
 	}
 
