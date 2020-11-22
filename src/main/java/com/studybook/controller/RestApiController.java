@@ -1,7 +1,7 @@
 package com.studybook.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,51 +10,51 @@ import org.springframework.web.bind.annotation.RestController;
 import com.studybook.model.User;
 import com.studybook.repository.UserRepository;
 
-import lombok.RequiredArgsConstructor;
-
 @RestController
-@RequiredArgsConstructor
 public class RestApiController {
 	
-	private final UserRepository userRepository;
-	private final BCryptPasswordEncoder passwordEncoder;
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
 	
+	@Autowired
+	private UserRepository userRepoitory;
 
-	@GetMapping("/")
+	@GetMapping({"/",""})
 	public String home() {
-		System.out.println("hello world!");
-		return "<h1>hello world!</h1>";
-	}
-	
-	@PostMapping("/token")
-	public String token() {
-		return "<h1>TOKEN</h1>";
-	}
-	
-	@PostMapping("/join/usernameCheck")
-	public boolean usernameCheck(@RequestBody String username) {
-		User user =  userRepository.findByUsername(username);
-		System.out.println(user);
-		return true;
-	}
-	
-	@GetMapping("/admin")
-	public String admin() {
-		return "hello";
+		return "home";
 	}
 	
 	@GetMapping("/user")
 	public String user() {
-		return "hello";
+		return "user";
 	}
+	
+	@GetMapping("/admin")
+	public String admin() {
+		return "admin";
+	}
+	
+// attemptAuthentication 에서 대신 로그인 인증
+//	@PostMapping("/login")
+//	public String login(@RequestBody String username) {
+//		System.out.println("로그인 컨트롤러 진입");
+//		System.out.println("로그인 아이디 : "+ username);
+//		User user =  userRepoitory.findByUsername(username);
+//		System.out.println("매치된 유저 정보 : " + user);
+//		
+//		return "login success";
+//	}
 	
 	@PostMapping("/join")
 	public String join(@RequestBody User user) {
-		System.out.println("회원가입!");
-		System.out.println(user);
+		System.out.println("회원가입 컨트롤러 진입");
+		System.out.println("회원가입 받은 객체 :" + user);
+		
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
-		user.setRole("USER");
-		userRepository.save(user);
-		return "회원가입 완료";
+		user.setRole("ROLE_USER");
+		
+		userRepoitory.save(user);
+		
+		return "join success";
 	}
 }

@@ -19,55 +19,55 @@ import com.studybook.config.auth.PrincipalDetails;
 import com.studybook.model.User;
 import com.studybook.repository.UserRepository;
 
-// 시큐리티가 filter를 가지고 있는데 그 필터중에 BasicAuthenticationFilter 라는 것이 있음
-// 권한이나 인증이 필요한 특정 주소를 요청했을 때 위 필터를 무조건 타게 되어있음.
-
-public class JwtAuthorizationFilter extends BasicAuthenticationFilter{
-
-	UserRepository userRepository;
+public class JwtAuthorizationFilter extends BasicAuthenticationFilter
+{
 	
-	
+	private UserRepository userRepository;
+
 	public JwtAuthorizationFilter(AuthenticationManager authenticationManager, UserRepository userRepository) {
 		super(authenticationManager);
 		this.userRepository = userRepository;
 	}
 
-	// 만약에 권한이나 인증이 필요한 주소가 아니라면 이 필터를 안탐
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		System.out.println("인증이나 권한이 필요한 주소 요청이 됨.");
-		String jwtHeader = request.getHeader("Authorization");
-		System.out.println("jwtHeader: " + jwtHeader);
 		
-		//JWT 토큰을 검증을 해서 정상적인 사용자인지 확인
+		String jwtHeader = request.getHeader("Authorization");
+		System.out.println("Authorization :" + jwtHeader);
+		
+		//토큰이 없거나 조건 만족하지 못할 경우 서명 인증 안함
 		if(jwtHeader == null || !jwtHeader.startsWith("Bearer")) {
+			System.out.println("토큰이 없음");
 			chain.doFilter(request, response);
 			return;
 		}
 		
-		//JWT 토큰을 검증을 해서 정상적인 사용자인지 확인
-		String jwtToken = request.getHeader("Authorization").replace("Bearer ", "");
+		//토큰 값 만 빼오기
+		String jwtToken = jwtHeader.replace("Bearer ", "");
 		
-		String username = JWT.require(Algorithm.HMAC512("cos"))
+		//토큰 디코딩하여 username 가져오기
+		String username = JWT.require(Algorithm.HMAC512("studybook"))
 				.build()
 				.verify(jwtToken)
 				.getClaim("username")
 				.asString();
 		
-		//정상적으로 서명됨
-		if(username != null) {
-			User userEntity = userRepository.findByUsername(username);
-			System.out.println(userEntity);
-			PrincipalDetails principalDetails = new PrincipalDetails(userEntity);
-			
-			//Jwt 토큰 서명을 통해서 서명이 정상이면 Authentication 객체 생성
-			Authentication authentication = 
-					new UsernamePasswordAuthenticationToken(principalDetails, null, principalDetails.getAuthorities());
+		System.out.println("디코딩된 유저아이디 : " +username);
 		
-			SecurityContextHolder.getContext().setAuthentication(authentication);
+		if(username != null) {
+			User user = userRepository.findByUsername(username);
+			System.out.println("디코딩된 id에 해당하는 유저 정보 " + user);
+			PrincipalDetails principalDetails = new PrincipalDetails(user);
 			
-			chain.doFilter(request, response);
+			Authentication authentication
+			= new UsernamePasswordAuthenticationToken(principalDetails, null, principalDetails.getAuthorities());
+		
+			System.out.println("authentication 객체 : " + authentication);
+			SecurityContextHolder.getContext().setAuthentication(authentication);
 		}
+			
+		chain.doFilter(request, response);
 	}
+
 }

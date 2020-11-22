@@ -2,8 +2,10 @@ package com.studybook.config.auth;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.studybook.model.User;
@@ -14,6 +16,7 @@ import lombok.Data;
 public class PrincipalDetails implements UserDetails{
 
 	private static final long serialVersionUID = 1L;
+	
 	private User user;
 	
 	public PrincipalDetails(User user) {
@@ -22,12 +25,14 @@ public class PrincipalDetails implements UserDetails{
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		// TODO Auto-generated method stub
-		Collection<GrantedAuthority> authorities = new ArrayList<>();
-
-		authorities.add(()->{return user.getRole();});
-
-		return authorities;
+		
+		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+        
+        authorities.add(new SimpleGrantedAuthority(user.getRole()));
+        
+        System.out.println("권한목록 리턴 "+authorities);
+        
+        return authorities;
 	}
 
 	@Override
@@ -65,6 +70,5 @@ public class PrincipalDetails implements UserDetails{
 		// TODO Auto-generated method stub
 		return true;
 	}
-	
-	
+
 }

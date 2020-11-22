@@ -27,7 +27,6 @@
 		    <version>3.10.3</version>
 		</dependency>
 		
-	
 		<!-- 스프링 시큐리티 : 비밀번호 암호화, 인증, 권한 처리 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
