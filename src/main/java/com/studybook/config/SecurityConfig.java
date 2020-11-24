@@ -7,42 +7,48 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import com.studybook.config.jwt.JwtAuthenticationFilter;
 import com.studybook.config.jwt.JwtAuthorizationFilter;
-import com.studybook.repository.UserRepository;
+import com.studybook.config.jwt.JwtTokenProvider;
+
+import lombok.RequiredArgsConstructor;
 
 @Configuration
 @EnableWebSecurity
+@RequiredArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
-	
-	private final UserRepository userRepository;
-	
-	public SecurityConfig(UserRepository userRepository) {
-		this.userRepository = userRepository;
-	}
+
+	private final JwtTokenProvider jwtTokenProvider;
 	
 	@Bean
 	public BCryptPasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
 	
+	@Bean
+    CorsFilter corsFilter() {
+        return new CorsFilter();
+    }
+	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
+			.addFilterBefore(corsFilter(), UsernamePasswordAuthenticationFilter.class) //adds your custom CorsFilter
+			.addFilterBefore(new JwtAuthorizationFilter(jwtTokenProvider), UsernamePasswordAuthenticationFilter.class)
 			.csrf().disable()
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 		.and()
 			.formLogin().disable()
 			.httpBasic().disable()
-			.addFilter(new JwtAuthenticationFilter(authenticationManager()))
-			.addFilter(new JwtAuthorizationFilter(authenticationManager(), userRepository))
 			.authorizeRequests()
-			.antMatchers("/user/**")
+			.antMatchers("/users/**")
 			.hasAnyRole("ADMIN","USER")
 			.antMatchers("/admin/**")
 			.hasRole("ADMIN")
-			.anyRequest().permitAll();
+			.anyRequest().permitAll()
+			.and()
+			.logout().logoutUrl("/logout");
 	}
 	
 }

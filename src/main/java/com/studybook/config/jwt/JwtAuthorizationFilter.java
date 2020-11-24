@@ -4,70 +4,45 @@ import java.io.IOException;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
+import org.springframework.web.filter.GenericFilterBean;
 
-import com.auth0.jwt.JWT;
-import com.auth0.jwt.algorithms.Algorithm;
-import com.studybook.config.auth.PrincipalDetails;
-import com.studybook.model.User;
-import com.studybook.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
 
-public class JwtAuthorizationFilter extends BasicAuthenticationFilter
-{
+@RequiredArgsConstructor
+public class JwtAuthorizationFilter extends GenericFilterBean{
 	
-	private UserRepository userRepository;
-
-	public JwtAuthorizationFilter(AuthenticationManager authenticationManager, UserRepository userRepository) {
-		super(authenticationManager);
-		this.userRepository = userRepository;
-	}
+	private final JwtTokenProvider tokenProvider;
 
 	@Override
-	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
+		System.out.println("권한 요청중..");
 		
-		String jwtHeader = request.getHeader("Authorization");
-		System.out.println("Authorization :" + jwtHeader);
+		//헤더에서 JWT를 받아온다
+		String token = tokenProvider.resolveToken((HttpServletRequest) request);
 		
-		//토큰이 없거나 조건 만족하지 못할 경우 서명 인증 안함
-		if(jwtHeader == null || !jwtHeader.startsWith("Bearer")) {
-			System.out.println("토큰이 없음");
-			chain.doFilter(request, response);
-			return;
-		}
+		System.out.println("헤더에서 토큰을 받아온다." + token);
 		
-		//토큰 값 만 빼오기
-		String jwtToken = jwtHeader.replace("Bearer ", "");
-		
-		//토큰 디코딩하여 username 가져오기
-		String username = JWT.require(Algorithm.HMAC512("studybook"))
-				.build()
-				.verify(jwtToken)
-				.getClaim("username")
-				.asString();
-		
-		System.out.println("디코딩된 유저아이디 : " +username);
-		
-		if(username != null) {
-			User user = userRepository.findByUsername(username);
-			System.out.println("디코딩된 id에 해당하는 유저 정보 " + user);
-			PrincipalDetails principalDetails = new PrincipalDetails(user);
+		if(token != null) {
 			
-			Authentication authentication
-			= new UsernamePasswordAuthenticationToken(principalDetails, null, principalDetails.getAuthorities());
-		
-			System.out.println("authentication 객체 : " + authentication);
+			System.out.println("토큰이 있음");
+			//토큰이 유효하면 유저 정보를 받아온다.
+			Authentication authentication = tokenProvider.getAuthentication(token);
+			
+			System.out.println("유효한 토큰확인, authentication 객체 생성");
+			
+			//인증을 위해 SecurityContext에 Authentication 객체 저장
 			SecurityContextHolder.getContext().setAuthentication(authentication);
-		}
 			
+			System.out.println("SecurityContextHolder에 객체 저장 완료");
+		}
+		
 		chain.doFilter(request, response);
 	}
-
 }
