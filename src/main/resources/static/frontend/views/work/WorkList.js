@@ -6,7 +6,7 @@ export class WorkList extends Template {
         this.setTitle("스터디북 - 작업물");
     }
 
-    async getHtml(){
+    async render(){
         return `
         <h1>hello</h1>
         <p>

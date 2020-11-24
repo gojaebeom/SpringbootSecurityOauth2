@@ -6,7 +6,7 @@ export class PostCreate extends Template {
         this.setTitle("스터디북 - 게시글 작성");
     }
 
-    async getHtml(){
+    async render(){
         return `
         <form id="post-form" class="form post-form">
             <div class="post-form-header">

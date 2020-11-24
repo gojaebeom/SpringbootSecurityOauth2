@@ -36,7 +36,8 @@ export const asyncLogin = async (user) => {
         body:JSON.stringify(user),
         headers:{
             'Content-Type': 'application/json',
-        }}).then(res => res.text());
+        }}).then(res => res.text())
+            .catch(err => console.log('요청 실패!'));
 }
 
 /* ---------------------------------
@@ -49,7 +50,8 @@ export const asyncLoginUserInfo = async (token) => {
         headers:{
             'Content-Type': 'application/json',
             'Authorization': token
-        }}).then(res => res.text());
+        }}).then(res => res.text())
+            
 }
 
 /* ---------------------------------

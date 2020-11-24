@@ -6,7 +6,7 @@ export class UserDetail extends Template {
         this.setTitle("스터디북 - 프로필");
     }
 
-    async getHtml(){
+    async render(){
         return `
         <h1>hello</h1>
         <p>

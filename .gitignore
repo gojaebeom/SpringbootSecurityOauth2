@@ -4,6 +4,10 @@ target/
 !**/src/main/**
 !**/src/test/**
 
+### nodeJs ###
+node_modules
+/**/node_modules
+
 ### eclipse ###
 *.properties
 /config

@@ -6,7 +6,7 @@ export class Home extends Template {
         this.setTitle("스터디북");
     }
 
-    async getHtml(){
+    async render(){
         return `
         <h1>hello</h1>
         <p>

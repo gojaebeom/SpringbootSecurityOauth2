@@ -6,7 +6,7 @@ export class TagList extends Template {
         this.setTitle("스터디북 - 태그");
     }
 
-    async getHtml(){
+    async render(){
         return `
         <h1>hello</h1>
         <p>
