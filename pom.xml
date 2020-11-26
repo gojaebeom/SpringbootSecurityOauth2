@@ -10,9 +10,9 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.studybook</groupId>
-	<artifactId>studybook-boot-app</artifactId>
+	<artifactId>studybook-app</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>studybook-boot-app</name>
+	<name>studybook-app</name>
 	<description>studybook application</description>
 
 	<properties>
@@ -20,13 +20,24 @@
 	</properties>
 
 	<dependencies>
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-oauth2-client -->		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-oauth2-client</artifactId>
+		</dependency>
+
+		<!-- 탬플릿 앤진 : mustache -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-mustache</artifactId>
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.auth0/java-jwt -->
 		<dependency>
-		    <groupId>com.auth0</groupId>
-		    <artifactId>java-jwt</artifactId>
-		    <version>3.10.3</version>
+			<groupId>com.auth0</groupId>
+			<artifactId>java-jwt</artifactId>
+			<version>3.10.3</version>
 		</dependency>
-		
+
 		<!-- 스프링 시큐리티 : 비밀번호 암호화, 인증, 권한 처리 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

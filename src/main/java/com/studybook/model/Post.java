@@ -42,9 +42,9 @@ public class Post {
 	@JoinColumn(name="user_id", nullable = false)
 	private User user;
 	
-	@ManyToOne(targetEntity = Category.class)
-	@JoinColumn(name="category_id", nullable = false)
-	private Category category;
+//	@ManyToOne(targetEntity = Category.class)
+//	@JoinColumn(name="category_id", nullable = false)
+//	private Category category;
 	
 	@ManyToMany
 	@JoinTable(
